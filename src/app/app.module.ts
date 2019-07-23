@@ -30,6 +30,10 @@ import { Not401Component } from './pages/not401/not401.component';
 import { RecuperarComponent } from './login/recuperar/recuperar.component';
 import { TokenComponent } from './login/recuperar/token/token.component';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { MenuComponent } from './pages/menu/menu.component';
+import { MenuEdicionComponent } from './pages/menu/menu-edicion/menu-edicion.component';
+import { RolComponent } from './pages/rol/rol.component';
+import { RolEdicionComponent } from './pages/rol/rol-edicion/rol-edicion.component';
 
 export function tokenGetter() {
   let tk = JSON.parse(sessionStorage.getItem(environment.TOKEN_NAME));
@@ -56,7 +60,11 @@ export function tokenGetter() {
     LoginComponent,
     Not401Component,
     RecuperarComponent,
-    TokenComponent
+    TokenComponent,
+    MenuComponent,
+    MenuEdicionComponent,
+    RolComponent,
+    RolEdicionComponent
   ],
   entryComponents: [MedicoDialogoComponent, DialogoDetalleComponent],
   imports: [
@@ -71,8 +79,8 @@ export function tokenGetter() {
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
-        whitelistedDomains: ['TU_IP_PUBLICA'],  //'localhost:8080'
-        blacklistedRoutes: ['http://TU_IP_PUBLICA/mediapp-backend/login/enviarCorreo']
+        whitelistedDomains: ['localhost:1010'],  //'localhost:8080'
+        blacklistedRoutes: ['http://localhost:1010/mediapp-backend/login/enviarCorreo']
       }
     })
   ],
