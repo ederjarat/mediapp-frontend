@@ -10,6 +10,7 @@ import { Injectable } from '@angular/core';
 export class MenuService {
 
   menuCambio = new Subject<Menu[]>();
+  mensajeCambio = new Subject<string>();
 
   url: string = `${environment.HOST_URL}`;
 
