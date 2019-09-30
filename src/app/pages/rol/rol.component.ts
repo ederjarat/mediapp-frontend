@@ -11,6 +11,7 @@ import {Medico} from "../../_model/medico";
 import {MedicoDialogoComponent} from "../medico/medico-dialogo/medico-dialogo.component";
 import {RolService} from "../../_service/rol.service";
 import {Rol} from "../../_model/rol";
+import {RolEdicionComponent} from "./rol-edicion/rol-edicion.component";
 
 @Component({
   selector: 'app-rol',
@@ -51,15 +52,16 @@ export class RolComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  openDialog(medico?: Medico) {
-    let med = medico != null ? medico : new Medico();
-    this.dialog.open(MedicoDialogoComponent, {
+  openDialog(rol?: Rol) {
+    let role = rol != null ? rol : new Rol();
+    console.log(role)
+    this.dialog.open(RolEdicionComponent, {
       width: '250px',
-      data: med
+      data: role
     })
   }
 
-  eliminar(medico: Medico) {
+  eliminar(rol: Rol) {
     /*
     this.medicoService.eliminar(medico.idMedico).subscribe(() => {
       this.medicoService.listar().subscribe(medicos => {

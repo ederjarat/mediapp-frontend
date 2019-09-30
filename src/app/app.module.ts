@@ -66,7 +66,7 @@ export function tokenGetter() {
     RolComponent,
     RolEdicionComponent
   ],
-  entryComponents: [MedicoDialogoComponent, DialogoDetalleComponent],
+  entryComponents: [MedicoDialogoComponent, DialogoDetalleComponent,RolEdicionComponent, MenuEdicionComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
