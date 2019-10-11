@@ -62,15 +62,15 @@ export class RolComponent implements OnInit {
   }
 
   eliminar(rol: Rol) {
-    /*
-    this.medicoService.eliminar(medico.idMedico).subscribe(() => {
-      this.medicoService.listar().subscribe(medicos => {
-        this.medicoService.medicosCambio.next(medicos);
-        this.medicoService.mensajeCambio.next("Se elimino");
+    
+    this.rolService.eliminar(rol.idRol).subscribe(() => {
+      this.rolService.listar().subscribe(roles => {
+        this.rolService.rolCambio.next(roles);
+        this.rolService.mensajeCambio.next("Se elimino");
       });
     });
 
-     */
+     
   }
 
 

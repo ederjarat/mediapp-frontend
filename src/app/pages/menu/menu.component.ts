@@ -1,14 +1,15 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatTableDataSource} from "@angular/material/table";
-import {Medico} from "../../_model/medico";
+
 import {MatPaginator} from "@angular/material/paginator";
 import {MatSort} from "@angular/material/sort";
-import {MedicoService} from "../../_service/medico.service";
+
 import {MatDialog} from "@angular/material/dialog";
 import {MatSnackBar} from "@angular/material/snack-bar";
-import {MedicoDialogoComponent} from "../medico/medico-dialogo/medico-dialogo.component";
+
 import {MenuService} from "../../_service/menu.service";
 import {Menu} from "../../_model/menu";
+import { MenuEdicionComponent } from './menu-edicion/menu-edicion.component';
 
 @Component({
   selector: 'app-menu',
@@ -23,7 +24,7 @@ export class MenuComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private medicoService: MedicoService, private dialog: MatDialog, private snackBar: MatSnackBar,private menuService: MenuService) { }
+  constructor(private menuService: MenuService, private dialog: MatDialog, private snackBar: MatSnackBar) { }
 
   ngOnInit() {
 
@@ -49,19 +50,19 @@ export class MenuComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  openDialog(medico?: Medico) {
-    let med = medico != null ? medico : new Medico();
-    this.dialog.open(MedicoDialogoComponent, {
+  openDialog(menu?: Menu) {
+    let med = menu != null ? menu : new Menu();
+    this.dialog.open(MenuEdicionComponent, {
       width: '250px',
       data: med
     })
   }
 
-  eliminar(medico: Medico) {
-    this.medicoService.eliminar(medico.idMedico).subscribe(() => {
-      this.medicoService.listar().subscribe(medicos => {
-        this.medicoService.medicosCambio.next(medicos);
-        this.medicoService.mensajeCambio.next("Se elimino");
+  eliminar(menu: Menu) {
+    this.menuService.eliminar(menu.idMenu).subscribe(() => {
+      this.menuService.listar().subscribe(menus => {
+        this.menuService.menuCambio.next(menus);
+        this.menuService.mensajeCambio.next("Se elimino");
       });
     });
   }

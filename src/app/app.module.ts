@@ -34,6 +34,8 @@ import { MenuComponent } from './pages/menu/menu.component';
 import { MenuEdicionComponent } from './pages/menu/menu-edicion/menu-edicion.component';
 import { RolComponent } from './pages/rol/rol.component';
 import { RolEdicionComponent } from './pages/rol/rol-edicion/rol-edicion.component';
+import { RolesUsuariosComponent } from './pages/roles-usuarios/roles-usuarios.component';
+import { AsignarRolUserComponent } from './pages/roles-usuarios/asignar-rol-user/asignar-rol-user.component';
 
 export function tokenGetter() {
   let tk = JSON.parse(sessionStorage.getItem(environment.TOKEN_NAME));
@@ -64,7 +66,9 @@ export function tokenGetter() {
     MenuComponent,
     MenuEdicionComponent,
     RolComponent,
-    RolEdicionComponent
+    RolEdicionComponent,
+    RolesUsuariosComponent,
+    AsignarRolUserComponent
   ],
   entryComponents: [MedicoDialogoComponent, DialogoDetalleComponent,RolEdicionComponent, MenuEdicionComponent],
   imports: [

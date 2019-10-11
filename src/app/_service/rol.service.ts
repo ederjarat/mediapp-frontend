@@ -28,4 +28,8 @@ export class RolService {
   modificar(rol: Rol) {
     return this.http.put(this.url, rol);
   }
+  
+  eliminar(id: number) {
+    return this.http.delete(`${this.url}/${id}`);
+  }
 }
