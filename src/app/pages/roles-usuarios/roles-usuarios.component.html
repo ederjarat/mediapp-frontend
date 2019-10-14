@@ -1,0 +1,40 @@
+<mat-toolbar>Asignar Roles a Usuarios</mat-toolbar>
+
+<router-outlet></router-outlet>
+
+<div class="example-container mat-elevation-z8">
+
+  <div class="example-header">
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Buscar usuario">
+    </mat-form-field>
+  </div>
+
+  <mat-table [dataSource]="dataSource" matSort>
+
+    <ng-container matColumnDef="idusuario">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> IDUSUARIO </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.idUsuario}} </mat-cell>
+    </ng-container>
+
+
+    <ng-container matColumnDef="username">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> USERNAME </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.username}} </mat-cell>
+    </ng-container>    
+
+    <ng-container matColumnDef="acciones">
+      <mat-header-cell *matHeaderCellDef>Acciones</mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <button mat-button color="primary" [routerLink]="['asignar-rol', row.idUsuario]">Asignar</button>   
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;">
+    </mat-row>
+  </mat-table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</div>
+

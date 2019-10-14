@@ -29,6 +29,9 @@ export class MenuService {
       headers: new HttpHeaders().set('Authorization', `bearer ${access_token}`).set('Content-Type', 'application/json')
     });
   }
+  leer(idMenu:number){
+    return this.http.get<Menu>(`${this.url}/${idMenu}`);
+  }
 
   registrar(menu: Menu) {
     return this.http.post(this.url, menu);

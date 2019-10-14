@@ -21,6 +21,8 @@ import { RolComponent } from './pages/rol/rol.component';
 import { MenuComponent } from './pages/menu/menu.component';
 import { RolesUsuariosComponent } from './pages/roles-usuarios/roles-usuarios.component';
 import { AsignarRolUserComponent } from './pages/roles-usuarios/asignar-rol-user/asignar-rol-user.component';
+import { RolesMenusComponent } from './pages/roles-menus/roles-menus.component';
+import { AsignarRolMenuComponent } from './pages/roles-menus/asignar-rol-menu/asignar-rol-menu.component';
 
 
 const routes: Routes = [
@@ -59,6 +61,11 @@ const routes: Routes = [
   {
     path: 'usuario-roles', component: RolesUsuariosComponent, children: [
       { path: 'asignar-rol/:id', component: AsignarRolUserComponent }
+    ], canActivate: [GuardService]
+  }, 
+  {
+    path: 'menu-roles', component: RolesMenusComponent, children: [
+      { path: 'asignar-rol/:id', component: AsignarRolMenuComponent }
     ], canActivate: [GuardService]
   }, 
   { path: '', redirectTo: 'login', pathMatch: 'full' }

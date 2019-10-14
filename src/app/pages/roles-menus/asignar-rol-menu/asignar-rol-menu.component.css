@@ -1,0 +1,19 @@
+.fila{
+    display: inline-block;
+    width: 100%;
+}
+.box{
+    float: left;
+    width: 200px;
+    height:auto;
+    margin: 1em;
+    vertical-align: middle;
+}
+
+.box-lista{
+    float: left;
+    width: 400px;
+    height:auto;
+    margin: 1em;
+    vertical-align: middle;
+}

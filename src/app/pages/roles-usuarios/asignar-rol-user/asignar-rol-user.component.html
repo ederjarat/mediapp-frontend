@@ -1,0 +1,65 @@
+<mat-card>
+<div class="fila">
+    <div class="box"><label><b>Usuario: </b> {{ usuarioSeleccionado.username }}</label></div> 
+   
+    <div class="box">
+      <mat-form-field>
+      <mat-select [(ngModel)]="rolSeleccionado" placeholder="SELECIONE">     
+      <mat-option *ngFor="let rol of roles" [value]="rol.idRol">
+        {{rol.nombre}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  </div> 
+   
+    <div class="box"><button mat-raised-button color="accent" (click)="agregarRol()" >
+      <mat-icon>plus</mat-icon>
+      <span>Agregar</span>
+    </button>
+  </div> 
+  </div>
+
+
+<div class="fila">
+    <div class="box-lista">
+      <h3>Roles Asignados</h3>
+      <hr>
+        <table style="width: 100%">
+          <tbody>
+          <tr *ngFor="let rol of rolesAsignados">
+            <td>{{ rol.nombre }}</td>
+          </tr>
+        </tbody>
+        </table>
+      </div>
+      <div class="box-lista">
+          <h3>Roles Nuevos</h3>
+          <hr>
+        <table style="width: 100%">
+          <tbody>
+          <tr  *ngFor="let rol of rolesNuevos">
+            <td style="width: 80%">{{ rol.nombre }} </td>
+            <td style="width: 20%" align="center"> <button mat-raised-button color="success" (click)="eliminarRol(rol)" >     
+            
+              <mat-icon>trash</mat-icon>
+              <span>eliminar</span>
+            </button> 
+          </td>
+          </tr>
+        </tbody>
+          </table>
+      </div>
+</div>
+
+<div class="fila">
+  <button mat-raised-button color="primary" (click)="grabarRoles()">
+    <mat-icon>done</mat-icon>
+    <span>Aceptar</span>
+  </button>
+  <button mat-raised-button color="accent" routerLink='/usuario-roles' type="button">
+    <mat-icon>close</mat-icon>
+    <span>Cancelar</span>
+  </button>
+</div>
+
+</mat-card>
